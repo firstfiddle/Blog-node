@@ -53,5 +53,5 @@ route.post('/admin/cat/update/:id',auth,Categorycontroller.catupdate)
 route.get('/admin/cat/delete/:id',auth,Categorycontroller.catdelete)
 route.get('/front/catdetail/:id',Categorycontroller.catdetail)
 //contact
-route.post('/inform',auth,Contactcontroller.contact)
+route.post('/inform',Contactcontroller.contact)
 module.exports=route
