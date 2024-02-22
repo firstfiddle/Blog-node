@@ -1,0 +1,26 @@
+<%-include('../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+  <div class="container">
+    <div class="body-content">
+      <div class="row">
+        <div class="col-md-12">
+              <div class="text-center">
+                <h2> Blogs View</h2>
+              </div>
+            <table class="table table-bordered table-striped">
+              <tr>
+                <th>Category</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td><%= d.cat_name %></td>
+                <td><%= d.des%></td>
+              </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%-include('../footer.ejs') %>

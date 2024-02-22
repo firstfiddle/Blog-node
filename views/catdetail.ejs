@@ -1,0 +1,50 @@
+<%- include('./header.ejs') %>
+
+<section class="blog-detail mtb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-left">
+                    <h1 class="mb-0"><%= d.cat_name %></h1>
+                    <div class="posted-on">
+                        <p>by <span>RSGiTECH</span> on <span><%=d.updatedAt.toLocaleDateString() %></span></p>
+                    </div>
+                    <div class="blog-desc mb-2">
+                    <%= d.des %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-right">
+                     <div class="right-widget categories mb-3">
+                         <h3>Categories</h3>
+                         <ul>
+                            <% c.forEach((item)=> { %>
+                                <li><a href="/front/catdetail/<%= item.id %>"><%= item.cat_name %></a></li>
+                           <% }) %>
+                            
+                        </ul>
+                     </div>
+                     <div class="right-widget recent-post">
+                        <h3>Recent Blogs</h3>
+                         <% b.forEach((item)=>{ %>                   
+                        <a href="/front/detail/<%= item.id %>">
+                            <div class="rb-box">
+                                <div class="rb-box-img">
+                                    <img class="w-100" style="height: 50px;" src="<%= item.image.url %>" alt="blog1" />
+                                </div>
+                                <div class="rb-box-desc">
+                                    <h4><%=item.title %></h4>
+                                    <p>Posted On: <span><%=item.updatedAt.toLocaleDateString() %></span></p>
+                                </div>
+                            </div>
+                        </a>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('./footer.ejs') %>

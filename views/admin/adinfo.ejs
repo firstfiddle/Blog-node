@@ -1,0 +1,77 @@
+<%-include('../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+  <div class="container">
+    <div class="body-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="dash-header">
+            <div class="dash-nav">
+              <a
+              data-bs-toggle="offcanvas" data-bs-target="#demo"
+                class="bg-blue btn btn-danger"
+                >Admin</a >
+            </div>
+            <div class="dash-title">
+              <h2>Contact Info</h2>
+            </div>
+            <div class="dash-nav">
+            </div>
+          </div>
+            <table class="table table-bordered table-striped text-center">
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+              <% c.forEach((item)=>{ %>
+              <tr>
+                <td><%= item.name %></td>
+                <td><%= item.email %></td>
+                <td>
+                    <a href="/admin/adinfoview/<%= item.id %>" class="btn btn-info">View</a>
+                </td>
+              </tr>
+              <% }) %>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Offcanvas Sidebar -->
+<div class="offcanvas offcanvas-start" id="demo">
+  <div class="offcanvas-header text-bg-dark">
+    <h2 class="offcanvas-title ">Dashboard</h2>
+    <button type="button" class="btn-close bg-danger text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+      <div class="dash-left">
+        <ul>
+          <li>
+            <a class="text-decoration-none" href="/admin/dashboard">Dashboard</a>
+          </li>
+          <li>
+            <a class="text-decoration-none " href="/admin/display"
+              >Display Blog</a
+            >
+          </li>
+          <li>
+            <a class="text-decoration-none" href="/admin/Category">Categories</a>
+          </li>
+          <li><a class="text-decoration-none" href="/register">New Admin</a></li>
+          <li><a
+            data-bs-toggle="modal"
+            data-bs-target="#change"
+            class="text-decoration-none"
+            >Change Password</a
+          >
+          </li>
+          <li>
+            <a class="text-decoration-none active" href="/admin/contact">Contact</a>
+          </li>
+          <li><a class="text-decoration-none" href="/logout">Logout</a></li>
+        </ul>
+      </div>  
+</div>
+<%-include('../admin/changepass.ejs') %>
+<%-include('../footer.ejs') %>

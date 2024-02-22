@@ -1,0 +1,31 @@
+<%-include('../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+  <div class="container">
+    <div class="body-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="dash-right">
+            <table class="table table-bordered table-striped">
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+              </tr>
+              <tr>
+                <td><%= c.name %></td>
+                <td><%= c.email %></td>
+                <td><%= c.phone %></td>
+                <td><%= c.message %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+<%-include('../footer.ejs') %>

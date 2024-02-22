@@ -1,0 +1,68 @@
+<%-include('../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+    <div class="container">
+        <div class="body-content">
+            <div class="row">
+                <% if(message.length > 0){%>
+                  <div class="alert alert-success text-center">
+                      <%= message %>  
+                  </div>
+              <%} %>
+                <div class="dash-header">
+                  <div class="dash-nav">
+                    <a
+                    data-bs-toggle="offcanvas" data-bs-target="#demo"
+                      class="bg-blue btn btn-danger">Admin </a >
+                  </div>
+                   
+                  <div class="dash-nav">
+                  <img src="<%=img.url %>" class="rounded-circle" width="200" height="200" alt="">
+                  </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="dash-right">
+                        <h1><span class="h2">Welcome,</span> <%= n %> <br> <span class="h4">Your Email: <%= e %> </span></h1>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                      </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%-include('../admin/changepass.ejs') %>
+<!-- Offcanvas Sidebar -->
+<div class="offcanvas offcanvas-start" id="demo">
+    <div class="offcanvas-header text-bg-dark">
+      <h2 class="offcanvas-title ">Dashboard</h2>
+      <button type="button" class="btn-close bg-danger text-reset" data-bs-dismiss="offcanvas"></button>
+    </div>
+        <div class="dash-left">
+          <ul>
+            <li>
+              <a class="text-decoration-none active" href="/admin/dashboard">Dashboard</a>
+            </li>
+            <li>
+              <a class="text-decoration-none " href="/admin/display"
+                >Display Blog</a
+              >
+            </li>
+            <li>
+              <a class="text-decoration-none" href="/admin/Category">Categories</a>
+            </li>
+            <li><a class="text-decoration-none" href="/register">New Admin</a></li>
+            <li><a
+              data-bs-toggle="modal"
+              data-bs-target="#change"
+              class="text-decoration-none"
+              >Change Password</a
+            >
+            </li>
+            <li>
+              <a class="text-decoration-none" href="/admin/contact">Contact</a>
+            </li>
+            <li><a class="text-decoration-none" href="/logout">Logout</a></li>
+          </ul>
+ </div>  
+  </div>
+<%-include('../footer.ejs') %>

@@ -1,0 +1,23 @@
+<%- include('./header.ejs') %>
+
+<section class="featured-blog mtb-40">
+  <div class="container">
+    <div class="row">
+    <% d.forEach((item)=>{ %>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img height="250" src="<%= item.image.url %>" alt="blog1" />
+          <div class="card-body text-center">
+            <h3><%= item.title %></h3>
+          <p>by <span>RSGiTECH</span> on <span><%=item.updatedAt.toLocaleDateString() %></span></p>
+          <p><%=item.des.slice(0,43) %></p>
+          <a href="/front/detail/<%= item.id %>" class="btn btn-danger">Read more...</a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('./footer.ejs') %>

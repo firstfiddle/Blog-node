@@ -1,0 +1,126 @@
+<%-include('../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+  <div class="container">
+    <div class="body-content">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="dash-header">
+              <div class="dash-nav">
+                <a
+                data-bs-toggle="offcanvas" data-bs-target="#demo"
+                  class="bg-blue btn btn-danger"
+                  >Admin</a >
+              </div>
+              <div class="dash-title">
+                <h2>Category Blogs</h2>
+              </div>
+              <div class="dash-nav">
+                <a
+                  data-bs-toggle="modal"
+                  data-bs-target="#blog"
+                  class="bg-blue btn btn-danger"
+                  >Add Blog</a
+                >
+              </div>
+            </div>
+            <table class="table table-bordered table-striped text-center">
+              <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+              <% d.forEach((item)=>{ %>
+              <tr>
+                <td><%= item.cat_name %></td>
+                <td><%= item.des.slice(0,52) %></td>
+                <td>
+                  <a href="/admin/cat/view/<%= item.id %>" class="btn btn-sm btn-primary mb-2">View</a>
+                  <a href="/admin/cat/edit/<%= item.id %>" class="btn btn-info btn-sm mb-2">Edit</a>
+                  <a href="/admin/cat/delete/<%= item.id %>" class="btn btn-danger btn-sm mb-2">Delete</a>
+                </td>
+              </tr>
+              <% }) %>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Modal -->
+<div
+  class="modal fade" id="blog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Blog</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="/insertblogcat" method="post">
+          <div class="form-floating mb-3">
+            <input type="text" name="cat" placeholder="enter title" class="form-control" required />
+            <label for="">Category</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              name="des"
+              placeholder="Discription"
+              id=""
+              cols="30"
+              rows="10"
+              class="form-control"
+              required
+            ></textarea>
+            <label for="">Discription</label>
+          </div>
+          <div class="float-end">
+            <button type="submit" class="btn btn-success">Sumbit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Offcanvas Sidebar -->
+<div class="offcanvas offcanvas-start" id="demo">
+  <div class="offcanvas-header text-bg-dark">
+    <h2 class="offcanvas-title ">Dashboard</h2>
+    <button type="button" class="btn-close bg-danger text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+      <div class="dash-left">
+        <ul>
+          <li>
+            <a class="text-decoration-none " href="/admin/dashboard">Dashboard</a>
+          </li>
+          <li>
+            <a class="text-decoration-none " href="/admin/display"
+              >Display Blog</a
+            >
+          </li>
+          <li>
+            <a class="text-decoration-none active" href="/admin/Category">Categories</a>
+          </li>
+          <li><a class="text-decoration-none" href="/register">New Admin</a></li>
+          <li><a
+            data-bs-toggle="modal"
+            data-bs-target="#change"
+            class="text-decoration-none"
+            >Change Password</a
+          >
+          </li>
+          <li>
+            <a class="text-decoration-none" href="/admin/contact">Contact</a>
+          </li>
+          <li><a class="text-decoration-none" href="/logout">Logout</a></li>
+        </ul>
+      </div>  
+</div>
+<%-include('../admin/changepass.ejs') %>
+<%-include('../footer.ejs') %>

@@ -1,0 +1,63 @@
+<%-include('../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="dash-right">
+          <div class="dash-header">
+            <div class="dash-title">
+              <h1>Blog Edit</h1>
+            </div>
+            <div class=" mb-3">
+              <img src="<%= e.image.url %>" width="100px" alt="">
+            </div>
+          </div>
+          <form action="/blogupdate/<%=e.id %>" method="post" enctype="multipart/form-data">
+              <div class="form-floating mb-3">
+                <input type="text" name="title" placeholder="enter title" class="form-control" value="<%= e.title  %>" />
+                <label for="">Title</label>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea
+                  name="des"
+                  placeholder="Discription"
+                  id=""
+                  cols="30"
+                  rows="10"
+                  class="form-control"
+                > <%= e.des %></textarea>
+                <label for="">Discription</label>
+                <div class="form-floating my-3">
+                  <input type="file" name="image" placeholder="select Image" class="form-control"/>
+                  <label for="">Image</label>
+                </div>
+              </div>
+                 
+              <div class="float-end">
+                <button type="submit" class="btn btn-success">Update</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+<%-include('../footer.ejs') %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
