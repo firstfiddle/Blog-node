@@ -161,7 +161,7 @@ try {
       from:"text@gmail.com",
       to:email,
       subject:"For Email Verification",
-      html:'<b>'+name+' </b>, please click here to <a href="http://localhost:2000/verifyadmin?id='+admin_id+'">verify</a> Your Email By Blog RSGITECH' // html body
+      html:'<b>'+name+' </b>, please click here to <a href="https://new-blogs-r1vr.onrender.com/verifyadmin?id='+admin_id+'">verify</a> Your Email By Blog RSGITECH' // html body
    });
    
 } catch (error) {
@@ -221,7 +221,7 @@ static forgetpe=async(name,email,token)=>{
       from:"text@gmail.com",
       to:email,
       subject:"For Reset Password",
-      html:'<b>'+name+' </b>, please click here to <a href="http://localhost:2000/resetlink?token='+token+'">Change Password</a> By Blog RSGITECH' // html body
+      html:'<b>'+name+' </b>, please click here to <a href="https://new-blogs-r1vr.onrender.com/resetlink?token='+token+'">Change Password</a> By Blog RSGITECH' // html body
    });
 }
 static resetlink=async(req,res)=>{ 
